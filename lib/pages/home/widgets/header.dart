@@ -1,4 +1,5 @@
 import 'package:adventure/theme/colors.dart';
+import 'package:adventure/theme/typography.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -11,7 +12,7 @@ class HomeScreenHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
           Expanded(
@@ -20,13 +21,13 @@ class HomeScreenHeader extends StatelessWidget {
                   getColorScheme(context).primary,
                   getColorScheme(context).tertiary
                 ],
-                style: Theme.of(context).textTheme.displayMedium),
+                style: textTheme.displaySmall),
           ),
           InkWell(
             onTap: () {},
             borderRadius: BorderRadius.circular(50),
             child: Container(
-              height: 45 * 3,
+              height: 36 * 3,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                   border: Border.all(
