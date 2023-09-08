@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 ColorScheme getColorScheme(context) => Theme.of(context).colorScheme;
 
-Color? getSurfaceColor(BuildContext context, {double opacity = 1}) =>
+Color getSurfaceColor(BuildContext context, {double opacity = 1}) =>
     Theme.of(context).colorScheme.surface.withOpacity(opacity);
-Color? getOnSurfaceColor(BuildContext context, {double opacity = 1}) =>
+Color getOnSurfaceColor(BuildContext context, {double opacity = 1}) =>
     Theme.of(context).colorScheme.onSurface.withOpacity(opacity);
 
 const lightColorScheme = ColorScheme(

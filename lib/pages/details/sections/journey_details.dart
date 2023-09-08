@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:adventure/models/adventure_place.dart';
 import 'package:adventure/theme/colors.dart';
 import 'package:adventure/theme/typography.dart';
@@ -15,8 +13,9 @@ class JourneyDetails extends StatelessWidget {
 
   final bool isDisplayed;
   final AdventurePlace place;
-  final GlobalKey containerKey = GlobalKey();
   final Function(double) onHeightChange;
+
+  final GlobalKey containerKey = GlobalKey();
 
   double getHeight() {
     final RenderBox renderBox =
@@ -28,12 +27,10 @@ class JourneyDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       key: containerKey,
-      onVerticalDragUpdate: (details) {
-        onHeightChange(details.delta.dy > 0 ? 50 : getHeight());
-      },
+      onVerticalDragUpdate: (details) =>
+          onHeightChange(details.delta.dy > 0 ? 50 : getHeight()),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

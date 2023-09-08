@@ -20,8 +20,11 @@ class PlaceDetails extends StatelessWidget {
               end: Alignment.bottomCenter,
               colors: [
             Colors.transparent,
-            getColorScheme(context).background.withOpacity(0.2),
-            getColorScheme(context).background.withOpacity(0.8)
+            getSurfaceColor(context, opacity: 0.5)
+          ],
+              stops: const [
+            0.5,
+            0.6
           ])),
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(

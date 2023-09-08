@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:adventure/models/adventure_place.dart';
 import 'package:adventure/pages/details/sections/journey_details.dart';
 import 'package:adventure/pages/details/sections/place_details.dart';
@@ -45,10 +44,12 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                   width: double.infinity,
                 )),
           ),
-          AnimatedOpacity(
-            opacity: value == 50 ? 1 : 0,
-            duration: const Duration(milliseconds: 300),
-            child: Positioned.fill(child: PlaceDetails(place: widget.place)),
+          Positioned.fill(
+            child: AnimatedOpacity(
+              opacity: value == 50 ? 1 : 0,
+              duration: const Duration(milliseconds: 300),
+              child: PlaceDetails(place: widget.place),
+            ),
           ),
           Positioned(
             left: 0,
