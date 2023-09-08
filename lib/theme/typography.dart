@@ -51,7 +51,7 @@ final textTheme = TextTheme(
     letterSpacing: 0.1,
   ),
   labelLarge: GoogleFonts.poppins(
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     fontSize: 14,
     height: 20 / 14,
   ),
@@ -61,7 +61,7 @@ final textTheme = TextTheme(
     height: 16 / 12,
   ),
   labelSmall: GoogleFonts.poppins(
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w400,
     fontSize: 11,
     height: 16 / 11,
   ),
