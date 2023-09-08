@@ -1,4 +1,5 @@
 import 'package:adventure/models/adventure_place.dart';
+import 'package:adventure/pages/details/utils/constants.dart';
 import 'package:adventure/theme/colors.dart';
 import 'package:adventure/theme/typography.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,7 +29,7 @@ class JourneyDetails extends StatelessWidget {
     return GestureDetector(
       key: containerKey,
       onVerticalDragUpdate: (details) =>
-          onHeightChange(details.delta.dy > 0 ? 50 : getHeight()),
+          onHeightChange(details.delta.dy > 0 ? MIN_HEIGHT : getHeight()),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -46,7 +47,7 @@ class JourneyDetails extends StatelessWidget {
                 duration: const Duration(milliseconds: 300),
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 10),
             Text(
               "Journey Details",
               style: textTheme.headlineSmall,

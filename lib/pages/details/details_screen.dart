@@ -1,8 +1,8 @@
-import 'dart:ui';
 import 'package:adventure/models/adventure_place.dart';
+import 'package:adventure/pages/details/sections/blurr_container.dart';
 import 'package:adventure/pages/details/sections/journey_details.dart';
 import 'package:adventure/pages/details/sections/place_details.dart';
-import 'package:adventure/theme/colors.dart';
+import 'package:adventure/pages/details/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class PlaceDetailsScreen extends StatefulWidget {
@@ -14,13 +14,14 @@ class PlaceDetailsScreen extends StatefulWidget {
 }
 
 class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
-  double value = 50;
+  double value = MIN_HEIGHT;
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -46,8 +47,8 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
           ),
           Positioned.fill(
             child: AnimatedOpacity(
-              opacity: value == 50 ? 1 : 0,
-              duration: const Duration(milliseconds: 300),
+              opacity: value == MIN_HEIGHT ? 1 : 0,
+              duration: ANIMATION_DURATION,
               child: PlaceDetails(place: widget.place),
             ),
           ),
@@ -55,29 +56,16 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
             left: 0,
             right: 0,
             bottom: 0,
-            child: ClipRRect(
-              borderRadius:
-                  const BorderRadius.vertical(top: Radius.circular(20)),
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                width: double.infinity,
-                height: value,
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Container(
-                    color: getSurfaceColor(context, opacity: 0.5),
-                  ),
-                ),
-              ),
-            ),
+            child: BlurredContainer(
+                value: value, height: value == MIN_HEIGHT ? 0 : MIN_HEIGHT),
           ),
           AnimatedPositioned(
-              duration: const Duration(milliseconds: 300),
+              duration: ANIMATION_DURATION,
               left: 0,
               right: 0,
               top: screenHeight - value,
               child: JourneyDetails(
-                  isDisplayed: value != 50,
+                  isDisplayed: value != MIN_HEIGHT,
                   place: widget.place,
                   onHeightChange: (val) => setState(() => value = val)))
         ]));
